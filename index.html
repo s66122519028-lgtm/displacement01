@@ -3,36 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Physics Scatter Plot</title>
+    <title>Displacement Visualizer</title>
+    <!-- นำเข้าฟอนต์สวยๆ จาก Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Calculate and plot displacement</h1>
+    <div class="header">
+        <h1>Motion Analytics</h1>
+        <p>Displacement Simulator & Visualization</p>
+    </div>
+    
     <div class="container">
-        <div>
+        <!-- กล่องซ้าย: ใส่ค่าตัวแปร -->
+        <div class="card input-section">
+            <h2>Parameters</h2>
             <form id="inputForm">
-                <label for="u">Initial velocity (u):</label>
-                <input type="number" id="u" name="u" step="any" value="0" required> m/s<br><br>
-                <label for="a">Acceleration (a):</label>
-                <input type="number" id="a" name="a" step="any" value="1.5" required> m/s<sup>2</sup><br><br>
-                <label for="t">Total time (t):</label>
-                <input type="number" id="t" name="t" step="any" value="10" required> s<br><br>
-                
-                <label for="disp">Displacement (s):</label>
-                <input type="text" id="disp" readonly value="75.00"> m<br><br>
-
-                <label for="samples">Number of samples:</label>
-                <select id="samples">
-                    <option value="10" selected>10</option>
-                    <option value="100">100</option>
-                </select><br><br>
-
-                <input type="submit" value="Calculate">
+                <div class="input-group">
+                    <label for="u">Initial velocity (u) [m/s]</label>
+                    <input type="number" id="u" step="any" value="0" required>
+                </div>
+                <div class="input-group">
+                    <label for="a">Acceleration (a) [m/s²]</label>
+                    <input type="number" id="a" step="any" value="1.5" required>
+                </div>
+                <div class="input-group">
+                    <label for="t">Total time (t) [s]</label>
+                    <input type="number" id="t" step="any" value="10" required>
+                </div>
+                <div class="input-group">
+                    <label for="samples">Data Points</label>
+                    <select id="samples">
+                        <option value="10" selected>10 Points</option>
+                        <option value="100">100 Points</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Calculate</button>
             </form>
         </div>
-        <div>
-            <canvas id="myChart"></canvas>
+
+        <!-- กล่องขวา: ผลลัพธ์และกราฟ -->
+        <div class="right-panel">
+            <div class="card result-section">
+                <h2>Final Displacement</h2>
+                <div class="result-display">
+                    <span id="disp-value">0.00</span>
+                    <span class="unit">m</span>
+                </div>
+            </div>
+            <div class="card chart-section">
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
     </div>
 
