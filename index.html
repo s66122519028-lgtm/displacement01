@@ -13,12 +13,22 @@
         <div>
             <form id="inputForm">
                 <label for="u">Initial velocity (u):</label>
-                <input type="number" id="u" name="u" step="any" required><br><br>
+                <input type="number" id="u" name="u" step="any" value="0" required> m/s<br><br>
                 <label for="a">Acceleration (a):</label>
-                <input type="number" id="a" name="a" step="any" required><br><br>
+                <input type="number" id="a" name="a" step="any" value="1.5" required> m/s<sup>2</sup><br><br>
                 <label for="t">Total time (t):</label>
-                <input type="number" id="t" name="t" step="any" required><br><br>
-                <input type="submit" value="Submit">
+                <input type="number" id="t" name="t" step="any" value="10" required> s<br><br>
+                
+                <label for="disp">Displacement (s):</label>
+                <input type="text" id="disp" readonly value="75.00"> m<br><br>
+
+                <label for="samples">Number of samples:</label>
+                <select id="samples">
+                    <option value="10" selected>10</option>
+                    <option value="100">100</option>
+                </select><br><br>
+
+                <input type="submit" value="Calculate">
             </form>
         </div>
         <div>
